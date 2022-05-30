@@ -2,20 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 BottomNavigationBar bottomNav() {
-  return BottomNavigationBar(items: const [
-    BottomNavigationBarItem(
-      icon: Icon(Icons.home),
-      label: 'Home',
-    ),
-    BottomNavigationBarItem(
-      icon: Icon(Icons.paid),
-      label: 'tickets',
-    ),
-    BottomNavigationBarItem(
-      icon: Icon(Icons.person),
-      label: 'profile',
-    ),
-  ]);
+  return BottomNavigationBar(
+    currentIndex: 1,
+    items: const [
+      BottomNavigationBarItem(
+        icon: Icon(Icons.home),
+        label: 'Home',
+      ),
+      BottomNavigationBarItem(
+        icon: Icon(Icons.paid),
+        label: 'tickets',
+      ),
+      BottomNavigationBarItem(
+        icon: Icon(Icons.person),
+        label: 'profile',
+      ),
+    ],
+  );
 }
 
 AppBar appBar() {
@@ -103,8 +106,9 @@ Padding textField() {
           ),
         ),
         focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(12),
-            borderSide: BorderSide(color: Colors.orange)),
+          borderRadius: BorderRadius.circular(12),
+          borderSide: const BorderSide(color: Colors.orange),
+        ),
         prefixIcon: const Icon(
           Icons.search,
         ),

@@ -3,17 +3,34 @@ import 'package:tickets_app/ui/ui_methods.dart';
 
 // ignore: must_be_immutable
 class Home extends StatelessWidget {
-  Home({Key? key}) : super(key: key);
+  const Home({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(),
-      bottomNavigationBar: bottomNav(),
+      bottomNavigationBar: BottomNavigationBarTheme(
+        data: const BottomNavigationBarThemeData(
+          selectedItemColor: Colors.orange,
+        ),
+        child: bottomNav(),
+      ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          tiketsText(),
+          Stack(children: [
+            SizedBox(
+              width: double.infinity,
+              height: 112,
+              child: Image.network(
+                'https://images.unsplash.com/photo-1557787163-1635e2efb160?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGNvbmNlcnR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
+                fit: BoxFit.cover,
+              ),
+            ),
+            Positioned(
+              child: tiketsText(),
+            ),
+          ]),
           textField(),
           categoriesList(),
           Expanded(
